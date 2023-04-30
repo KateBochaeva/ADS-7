@@ -12,10 +12,10 @@ class TPQueue {
     Item* head;
     Item* tail;
     Item* createItem(const T& data) {
-        Item* newItem=new Item;
-        newItem->data=data;
-        newItem->next=nullptr;
-        newItem->prev=nullptr;
+        Item* newItem = new Item;
+        newItem->data = data;
+        newItem->next = nullptr;
+        newItem->prev = nullptr;
         return newItem;
     }
 
@@ -25,10 +25,10 @@ class TPQueue {
         if (!head)
             throw std::underflow_error("Queue is Empty!");
 
-        Item* temp=head->next;
-        T data=head->data;
+        Item* temp = head->next;
+        T data = head->data;
         delete head;
-        head=temp;
+        head = temp;
         return data;
     }
     void clear() {
@@ -39,24 +39,24 @@ class TPQueue {
         clear();
     }
     void push(const T& newData) {
-        if (head==nullptr) {
-            head=createItem(newData);
-            tail=head;
-        } else if (tail->data.prior>=newData.prior) {
-            if (tail->data.ch==newData.ch) {
-              tail->data=newData;
+        if (head == nullptr) {
+            head = createItem(newData);
+            tail = head;
+        } else if (tail->data.prior >= newData.prior) {
+            if (tail->data.ch == newData.ch) {
+              tail->data=  newData;
             } else {
-                tail->next=createItem(newData);
-                tail->next->prev=tail;
-                tail=tail->next;
+                tail->next = createItem(newData);
+                tail->next->prev = tail;
+                tail = tail->next;
             }
-        } else if (head==tail) {
-            tail->prev=createItem(newData);
-            head=tail->prev;
-            head->next=tail;
+        } else if (head == tail) {
+            tail->prev = createItem(newData);
+            head = tail->prev;
+            head->next = tail;
         }
 
-        Item* item=tail;
+        Item* item = tail;
         while (item != head && item->data.prior < newData.prior) {
           item = item->prev;
         }
