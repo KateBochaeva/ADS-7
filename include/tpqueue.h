@@ -4,7 +4,7 @@
 
 template<typename T>
 class TPQueue {
-  // реализация шаблона очереди с приоритетом на связанном списке
+  
 };
 
 struct SYM {
