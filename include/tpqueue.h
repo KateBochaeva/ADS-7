@@ -8,7 +8,7 @@ class TPQueue {
         T data;
         Item* next;
         Item* prev;
-    };
+  };
     Item* head;
     Item* tail;
     Item* createItem(const T& data) {
@@ -44,7 +44,7 @@ class TPQueue {
             tail = head;
         } else if (tail->data.prior >= newData.prior) {
             if (tail->data.ch == newData.ch) {
-              tail->data=  newData;
+              tail->data = newData;
             } else {
                 tail->next = createItem(newData);
                 tail->next->prev = tail;
